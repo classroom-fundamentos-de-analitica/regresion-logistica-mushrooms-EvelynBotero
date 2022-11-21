@@ -77,7 +77,7 @@ def pregunta_01():
     X = df.copy(deep=True)
 
     # Remueva la columna `type` del DataFrame `X`.
-    X.drop("type", axis=1, inplace=True)
+    X.drop("type", axis=1)
 
     # Retorne `X` y `y`
     return X, y
