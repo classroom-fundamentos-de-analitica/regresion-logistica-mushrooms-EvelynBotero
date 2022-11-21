@@ -68,19 +68,20 @@ def pregunta_01():
 
     # Remueva la columna `veil-type` del DataFrame `df`.
     # Esta columna tiene un valor constante y no sirve para la detección de hongos.
-    df = df.drop("veil_type", axis=1)
+    df = df.drop("veil_type", axis =1)
 
     # Asigne la columna `type` a la variable `y`.
     y = df["type"]
 
     # Asigne una copia del dataframe `df` a la variable `X`.
-    X = df.copy
+    X = df.copy()
 
     # Remueva la columna `type` del DataFrame `X`.
-    X = X.drop("type", axis=1)
+    X = X.drop("type", axis =1)
 
     # Retorne `X` y `y`
     return X, y
+
 
 def pregunta_02():
     """
@@ -105,6 +106,7 @@ def pregunta_02():
     # Retorne `X_train`, `X_test`, `y_train` y `y_test`
     return X_train, X_test, y_train, y_test
 
+
 def pregunta_03():
     """
     Especificación y entrenamiento del modelo. En sklearn, el modelo de regresión
@@ -122,16 +124,15 @@ def pregunta_03():
     from sklearn.preprocessing import OneHotEncoder
     from sklearn.pipeline import Pipeline
 
-
     # Cargue las variables.
-    X_train, _, y_train, _ = pregunta_02()
+    X_train, X_test, y_train, y_test = pregunta_02()
 
     # Cree un pipeline que contenga un estimador OneHotEncoder y un estimador
     # LogisticRegression con una regularización Cs=10
     pipeline = Pipeline(
         steps=[
             ("OneHotEncoder", OneHotEncoder()),
-            ("LogisticRegression", LogisticRegressionCV(Cs=10)),
+            ("LogisticRegressionCV", LogisticRegressionCV(Cs=10)),
         ],
     )
 
@@ -140,6 +141,7 @@ def pregunta_03():
 
     # Retorne el pipeline entrenado
     return pipeline
+
 
 def pregunta_04():
     """
